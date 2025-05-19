@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Todo List Web App</h1>
+  
+  <div class="form">
+    <input [(ngModel)]="task" placeholder="Enter task" type="text"/>
+    <input [(ngModel)]="date" type="date" />
+    <button (click)="addTask()" class="add">{{ isEditMode ? 'Update' : 'Add' }} Task</button>
+  </div>
+
+  <ul>
+    <li *ngFor="let todo of todos">
+      <span>{{ todo.task }} — <strong>{{ todo.date }}</strong></span>
+      <div>
+        <button class="edit" (click)="editTask(todo)">Edit</button>
+        <button class="delete" (click)="deleteTask(todo.id)">Delete</button>
+      </div>
+    </li>
+  </ul>
+</div>
